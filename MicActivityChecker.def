@@ -1,0 +1,4 @@
+LIBRARY "micActivityChecker"
+
+EXPORTS
+   is_microphone_recording
