@@ -56,7 +56,7 @@ BOOL is_microphone_recording()
         if (found != std::string::npos)
         {
             // Print endpoint friendly name.  
-            printf("Endpoint friendly name: \"%S\"\n", varName.pwszVal);
+            // printf("Endpoint friendly name: \"%S\"\n", varName.pwszVal);
 
             // Get the session manager.  
             hr = p_capture_device->Activate(
@@ -83,7 +83,7 @@ BOOL is_microphone_recording()
 
     // Get the session count.  
     hr = p_session_list->GetCount(&cb_session_count);
-    printf("Session count: %d\n", cb_session_count);
+    // printf("Session count: %d\n", cb_session_count);
 
     for (int index = 0; index < cb_session_count; index++)
     {
@@ -101,7 +101,7 @@ BOOL is_microphone_recording()
         hr = p_session_control2->IsSystemSoundsSession();
         if (S_OK == hr)
         {
-            printf(" this is a system sound.\n");
+            // printf(" this is a system sound.\n");
             continue;
         }
 
@@ -110,7 +110,7 @@ BOOL is_microphone_recording()
         hr = p_session_control2->GetSessionInstanceIdentifier(&inst_id);
         if (S_OK == hr)
         {
-            printf("SessionInstanceIdentifier: %ls\n", inst_id);
+            // printf("SessionInstanceIdentifier: %ls\n", inst_id);
         }
 
         AudioSessionState state;
@@ -118,15 +118,15 @@ BOOL is_microphone_recording()
         switch (state)
         {
         case AudioSessionStateInactive:
-            printf("Session state: Inactive\n\n");
+            // printf("Session state: Inactive\n\n");
             break;
         case AudioSessionStateActive:
             // #3 Active state indicates it is recording, otherwise is not recording.  
-            printf("Session state: Active\n\n");
+            // printf("Session state: Active\n\n");
             result = TRUE;
             break;
         case AudioSessionStateExpired:
-            printf("Session state: Expired\n\n");
+            // printf("Session state: Expired\n\n");
             break;
         }
     }
